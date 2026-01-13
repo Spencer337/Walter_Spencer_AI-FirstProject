@@ -5,13 +5,14 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class RotateAT : ActionTask {
-		public float t = 0;
-		public float rotationSpeed = 30;
+	public class MoveCameraAT : ActionTask {
+		public Vector3 velocity;
+		public bool isMovingForward = true;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
+			velocity = Camera.main.transform.position;
 			return null;
 		}
 
@@ -19,17 +20,33 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            t -= Time.deltaTime * rotationSpeed;
-			agent.transform.eulerAngles = new Vector3(0.0f, 0.0f, t);
-			if (t <= -360)
+			if (isMovingForward == true)
 			{
-				agent.transform.eulerAngles = Vector3.zero;
-				t = 0;
+				velocity.z += Time.deltaTime;
+				Camera.main.transform.position = velocity;
+				if (velocity.z >= -5)
+				{
+					velocity.z = -5;
+					isMovingForward = false;
+				}
+			}
+			else if (isMovingForward == false)
+			{
+                velocity.z -= Time.deltaTime;
+                Camera.main.transform.position = velocity;
+                if (velocity.z <= -10)
+                {
+                    velocity.z = -10;
+                    isMovingForward = true;
+                    EndAction(true);
+                }
             }
+
 		}
 
 		//Called when the task is disabled.
