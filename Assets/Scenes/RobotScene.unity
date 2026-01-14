@@ -187,6 +187,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &210500364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210500367}
+  - component: {fileID: 210500366}
+  - component: {fileID: 210500365}
+  m_Layer: 0
+  m_Name: Accelerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &210500365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210500364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
+--- !u!114 &210500366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210500364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Wait","_position":{"x":624.0,"y":335.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"otherObject":{"_value":1},"amountToAccelerate":1.0,"$type":"NodeCanvas.Tasks.Actions.AccelerateAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Accelerate","_position":{"x":809.0,"y":518.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"}],"connections":[{"_condition":{"waitDuration":3.0,"$type":"NodeCanvas.Tasks.Conditions.WaitCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences:
+  - {fileID: 0}
+  - {fileID: 341929438}
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 210500365}
+--- !u!4 &210500367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210500364}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &341555581
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,10 +424,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"Speed":{"_value":5.0,"_name":"Speed","_id":"ab8bb8de-8d75-4e69-b661-38ce5ae2677a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"CurrentCharge":{"_value":100.0,"_name":"CurrentCharge","_id":"03491100-2929-431f-b423-747539a1242f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_value":5.0,"_name":"Speed","_id":"ab8bb8de-8d75-4e69-b661-38ce5ae2677a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":100.0,"_name":"CurrentCharge","_id":"03491100-2929-431f-b423-747539a1242f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &341929445
@@ -363,13 +447,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
-  _boundGraphObjectReferences: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"targetTransform":1,"speed":{"_name":"Speed","_targetVariableID":"ab8bb8de-8d75-4e69-b661-38ce5ae2677a"},"$type":"NodeCanvas.Tasks.Actions.ApproachAT"},{"rateOfChange":-10.0,"currentValue":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"$type":"NodeCanvas.Tasks.Actions.IncreaseValueAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Work","_position":{"x":41.0,"y":347.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"actions":[{"targetTransform":2,"speed":{"_name":"Speed","_targetVariableID":"ab8bb8de-8d75-4e69-b661-38ce5ae2677a"},"$type":"NodeCanvas.Tasks.Actions.ApproachAT"},{"rateOfChange":10.0,"$type":"NodeCanvas.Tasks.Actions.RechargeAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Recharge","_position":{"x":257.0,"y":571.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":3,"speed":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"$type":"NodeCanvas.Tasks.Actions.ApproachAT"},{"rateOfChange":-10.0,"currentValue":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"$type":"NodeCanvas.Tasks.Actions.IncreaseValueAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Toil","_position":{"x":268.0,"y":141.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_condition":{"currentValue":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"$type":"NodeCanvas.Tasks.Conditions.CheckChargeCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":1,"$type":"NodeCanvas.Tasks.Conditions.AtPadCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"currentValue":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"threshold":100.0,"$type":"NodeCanvas.Tasks.Conditions.FullChargeCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":3,"$type":"NodeCanvas.Tasks.Conditions.AtPadCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"currentValue":{"_name":"CurrentCharge","_targetVariableID":"03491100-2929-431f-b423-747539a1242f"},"$type":"NodeCanvas.Tasks.Conditions.CheckChargeCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences:
+  - {fileID: 0}
+  - {fileID: 1366323902}
+  - {fileID: 546998561}
+  - {fileID: 821430103}
   _boundGraphSource:
-    _version: 3.31
+    _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 852, y: 195}
+    _translation: {x: 750, y: 129}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -2863,6 +2951,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968003039}
+  - component: {fileID: 1968003041}
+  - component: {fileID: 1968003040}
   m_Layer: 0
   m_Name: PowerStation
   m_TagString: Untagged
@@ -2889,6 +2979,59 @@ Transform:
   - {fileID: 546998561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1968003040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968003038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"chargeRate":{"_value":30.0,"_name":"chargeRate","_id":"b9f99a2c-be38-4efc-a7b5-2d91d82c9ff6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences: []
+  _serializedVariables:
+  - _json: '{"_value":30.0,"_name":"chargeRate","_id":"b9f99a2c-be38-4efc-a7b5-2d91d82c9ff6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+--- !u!114 &1968003041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968003038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":789.0,"y":449.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"robotObject":{"_value":1},"chargeRate":{"_name":"chargeRate","_targetVariableID":"b9f99a2c-be38-4efc-a7b5-2d91d82c9ff6"},"$type":"NodeCanvas.Tasks.Actions.ChargeRobotAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Charging","_position":{"x":998.0,"y":565.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"}],"connections":[{"_condition":{"robotTransform":2,"padTransform":3,"$type":"NodeCanvas.Tasks.Conditions.RobotIsNearCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"robotTransform":2,"padTransform":3,"$type":"NodeCanvas.Tasks.Conditions.RobotIsNotNearCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences:
+  - {fileID: 0}
+  - {fileID: 341929438}
+  - {fileID: 341929442}
+  - {fileID: 546998561}
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 1968003040}
 --- !u!1 &1981231491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,3 +3521,4 @@ SceneRoots:
   - {fileID: 25094913}
   - {fileID: 1968003039}
   - {fileID: 875416973}
+  - {fileID: 210500367}

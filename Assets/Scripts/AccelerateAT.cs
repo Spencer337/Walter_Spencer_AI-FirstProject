@@ -5,18 +5,13 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class ApproachAT : ActionTask {
-
-		public Transform targetTransform;
-		//public float speed;
-
-		public BBParameter<float> speed;
+	public class AccelerateAT : ActionTask {
+		public BBParameter<GameObject> otherObject;
+		public float amountToAccelerate;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
-			//Blackboard agentBlackboard = agent.GetComponent<Blackboard>();
-			//speed = agentBlackboard.GetVariableValue<float>("Speed");
 			return null;
 		}
 
@@ -24,21 +19,17 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			
+			Blackboard otherBlackboard = otherObject.value.GetComponent<Blackboard>();
+			float currentSpeed = otherBlackboard.GetVariableValue<float>("Speed");
+			currentSpeed += amountToAccelerate;
+			otherBlackboard.SetVariableValue("Speed", currentSpeed);
+
+			EndAction(true);
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			// Move the object towards the target Transform
-
-			Vector3 directionToMove = targetTransform.position - agent.transform.position;
-
-			agent.transform.position += directionToMove.normalized * speed.value * Time.deltaTime;
-
-			float distanceToTarget = Vector3.Magnitude(directionToMove);
-			if (distanceToTarget < 0.5) {
-				EndAction(true);
-			}
+			
 		}
 
 		//Called when the task is disabled.

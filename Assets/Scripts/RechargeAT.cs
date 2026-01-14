@@ -5,41 +5,31 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class ApproachAT : ActionTask {
-
-		public Transform targetTransform;
-		//public float speed;
-
-		public BBParameter<float> speed;
+	public class RechargeAT : ActionTask {
+		public float currentCharge;
+		public float rateOfChange;
+		Blackboard agentBlackboard;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
-			//Blackboard agentBlackboard = agent.GetComponent<Blackboard>();
-			//speed = agentBlackboard.GetVariableValue<float>("Speed");
-			return null;
+            agentBlackboard = agent.GetComponent<Blackboard>();
+            
+            return null;
 		}
 
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			// Move the object towards the target Transform
-
-			Vector3 directionToMove = targetTransform.position - agent.transform.position;
-
-			agent.transform.position += directionToMove.normalized * speed.value * Time.deltaTime;
-
-			float distanceToTarget = Vector3.Magnitude(directionToMove);
-			if (distanceToTarget < 0.5) {
-				EndAction(true);
-			}
-		}
+   //         currentCharge = agentBlackboard.GetVariableValue<float>("CurrentCharge");
+			//currentCharge += rateOfChange * Time.deltaTime;
+   //         agentBlackboard.SetVariableValue("CurrentCharge", currentCharge);
+        }
 
 		//Called when the task is disabled.
 		protected override void OnStop() {
