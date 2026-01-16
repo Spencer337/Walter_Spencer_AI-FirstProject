@@ -1,23 +1,19 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class BreatheAT : ActionTask {
-        public BBParameter<float> breatheInterval;
-        public float t;
-		Blackboard agentBlackboard;
-		public float currentOxygen;
-		public TextMeshProUGUI oxygenText;
+	public class RefillOxygenAT : ActionTask {
+        public BBParameter<GameObject> astronautObject;
+        public BBParameter<float> refillRate;
+        Blackboard otherBlackboard;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
-            agentBlackboard = agent.GetComponent<Blackboard>();
+            otherBlackboard = astronautObject.value.GetComponent<Blackboard>();
             return null;
 		}
 
@@ -25,21 +21,15 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			
+            
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			t += Time.deltaTime;
-			if (t >= breatheInterval.value)
-			{
-                currentOxygen = agentBlackboard.GetVariableValue<float>("Oxygen");
-				currentOxygen -= 5;
-                agentBlackboard.SetVariableValue("Oxygen", currentOxygen);
-				t = 0;
-            }
-			oxygenText.text = currentOxygen.ToString();
-		}
+            float currentOxygen = otherBlackboard.GetVariableValue<float>("Oxygen");
+            currentOxygen += refillRate.value * Time.deltaTime;
+            otherBlackboard.SetVariableValue("Oxygen", currentOxygen);
+        }
 
 		//Called when the task is disabled.
 		protected override void OnStop() {
