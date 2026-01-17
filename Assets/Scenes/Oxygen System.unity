@@ -154,10 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"refillRate":{"_value":15.0,"_name":"refillRate","_id":"aeec3ce2-0d5c-4482-9411-4b5d7dc0332d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Speed":{"_value":10.0,"_name":"Speed","_id":"b07c582a-e108-4b42-af60-871e0aee0a29","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_value":15.0,"_name":"refillRate","_id":"aeec3ce2-0d5c-4482-9411-4b5d7dc0332d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":10.0,"_name":"Speed","_id":"b07c582a-e108-4b42-af60-871e0aee0a29","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &248928401
@@ -173,15 +177,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":697.0,"y":442.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Moving","_position":{"x":868.0,"y":326.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"astronautObject":{"_value":1},"refillRate":{"_name":"refillRate","_targetVariableID":"aeec3ce2-0d5c-4482-9411-4b5d7dc0332d"},"$type":"NodeCanvas.Tasks.Actions.RefillOxygenAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Refilling","_position":{"x":1044.0,"y":204.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_condition":{"astronautObject":{"_value":1},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.AstronautOxygenLowCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"astronautObject":{"_value":1},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.AstronautOxygenHighCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":613.0,"y":546.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"leftSideTarget":1,"rightSideTarget":2,"astronautObject":{"_value":3},"speed":{"_name":"Speed","_targetVariableID":"b07c582a-e108-4b42-af60-871e0aee0a29"},"$type":"NodeCanvas.Tasks.Actions.MoveToAstronautAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Moving","_position":{"x":911.0,"y":453.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"astronautObject":{"_value":3},"refillRate":{"_name":"refillRate","_targetVariableID":"aeec3ce2-0d5c-4482-9411-4b5d7dc0332d"},"$type":"NodeCanvas.Tasks.Actions.RefillOxygenAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Refilling","_position":{"x":1054.0,"y":224.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"targetPosition":4,"speed":{"_name":"Speed","_targetVariableID":"b07c582a-e108-4b42-af60-871e0aee0a29"},"$type":"NodeCanvas.Tasks.Actions.ReturnToPositionAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Returning","_position":{"x":737.0,"y":306.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"}],"connections":[{"_condition":{"astronautObject":{"_value":3},"checkValue":10.0,"$type":"NodeCanvas.Tasks.Conditions.AstronautOxygenLowCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"astronautObject":{"_value":3},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.AstronautOxygenHighCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
+  - {fileID: 415242829}
+  - {fileID: 407306458}
   - {fileID: 1175002950}
+  - {fileID: 1250270120}
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 118, y: 104}
+    _translation: {x: -131, y: 227}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -274,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 248928399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.58, y: -1.1425139, z: 1.83}
+  m_LocalPosition: {x: 5.5, y: -1, z: 2}
   m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -383,6 +390,176 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &295777772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295777773}
+  - component: {fileID: 295777776}
+  - component: {fileID: 295777775}
+  - component: {fileID: 295777774}
+  m_Layer: 0
+  m_Name: Astronaut Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295777773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295777772}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.75, z: 1.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1175002956}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &295777774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295777772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &295777775
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295777772}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 815f0f53cf1e9a842baaef672e6b2dfa, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &295777776
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295777772}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &407306457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407306458}
+  m_Layer: 0
+  m_Name: Astronaut Right Side
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407306458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407306457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &415242828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415242829}
+  m_Layer: 0
+  m_Name: Astronaut Left Side
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415242829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415242828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &608772831
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +571,6 @@ GameObject:
   - component: {fileID: 608772832}
   - component: {fileID: 608772834}
   - component: {fileID: 608772833}
-  - component: {fileID: 608772835}
   m_Layer: 5
   m_Name: Oxygen Value
   m_TagString: Untagged
@@ -520,20 +696,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608772831}
   m_CullTransparentMesh: 1
---- !u!114 &608772835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608772831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcaeb3c32e2123a45bf374bf7d8ecb20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  astronaut: {fileID: 0}
-  oxygenText: {fileID: 0}
 --- !u!1 &780398477
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +896,38 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1105040452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105040453}
+  m_Layer: 0
+  m_Name: Astronaut Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105040453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105040452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1175002956}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175002950
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,18 +963,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"Oxygen":{"_value":100.0,"_name":"Oxygen","_id":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BreatheInterval":{"_value":1.0,"_name":"BreatheInterval","_id":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isFallingLeft":{"_value":true,"_name":"isFallingLeft","_id":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BreatheInterval":{"_value":100.0,"_name":"BreatheInterval","_id":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isFallingLeft":{"_name":"isFallingLeft","_id":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_value":100.0,"_name":"Oxygen","_id":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":1.0,"_name":"BreatheInterval","_id":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":100.0,"_name":"BreatheInterval","_id":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":true,"_name":"isFallingLeft","_id":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  - _json: '{"_name":"isFallingLeft","_id":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &1175002952
@@ -796,15 +990,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"newInterval":1.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Awake","_position":{"x":539.0,"y":490.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":0.5,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Panicked","_position":{"x":792.0,"y":380.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":3.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Asleep","_position":{"x":1004.0,"y":255.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":40.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"newInterval":1.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Awake","_position":{"x":539.0,"y":490.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":0.5,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"astronautPivot":2,"standingSpeed":50.0,"$type":"NodeCanvas.Tasks.Actions.StandUpCT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Panicked","_position":{"x":792.0,"y":379.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":3.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"isFallingLeft":{"_name":"isFallingLeft","_targetVariableID":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3"},"astronautPivot":2,"fallingSpeed":50.0,"$type":"NodeCanvas.Tasks.Actions.FallOverAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Asleep","_position":{"x":1004.0,"y":255.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":50.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 608772833}
+  - {fileID: 1105040452}
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 91, y: -10}
+    _translation: {x: -164, y: -55}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -896,9 +1091,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175002950}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3, y: -1.1425139, z: -0.69669896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 2.3322, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 295777773}
+  m_Father: {fileID: 1105040453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1250270119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250270120}
+  m_Layer: 0
+  m_Name: Oxygen Tank Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1250270120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250270119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: -1, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1137,7 +1364,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1513340459}
   - {fileID: 1069881449}
-  - {fileID: 1175002956}
   - {fileID: 248928405}
   - {fileID: 262176282}
   - {fileID: 780398480}
+  - {fileID: 1105040453}
+  - {fileID: 415242829}
+  - {fileID: 407306458}
+  - {fileID: 1250270120}
