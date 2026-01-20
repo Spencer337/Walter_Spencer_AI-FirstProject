@@ -36,7 +36,7 @@ namespace NodeCanvas.Tasks.Actions {
                 }
 				else
 				{
-					isFallingLeft.value = false;
+					//isFallingLeft.value = false;
                     astronautPivot.transform.eulerAngles = new Vector3(0, 0, 90);
                     EndAction(true);
 
@@ -50,7 +50,7 @@ namespace NodeCanvas.Tasks.Actions {
                 }
                 else
                 {
-                    isFallingLeft.value = true;
+                    //isFallingLeft.value = true;
                     astronautPivot.transform.eulerAngles = new Vector3(0, 0, -90);
                     EndAction(true);
                 }

@@ -8,6 +8,7 @@ namespace NodeCanvas.Tasks.Conditions {
 	public class OxygenAboveValueCT : ConditionTask {
         public BBParameter<float> oxygen;
         public float checkValue;
+        public BBParameter<bool> isFallingLeft; 
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -30,6 +31,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		protected override bool OnCheck() {
             if (oxygen.value >= checkValue)
             {
+                isFallingLeft.value = !isFallingLeft.value;
                 return true;
             }
             else

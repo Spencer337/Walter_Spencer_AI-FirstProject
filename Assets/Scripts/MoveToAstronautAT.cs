@@ -32,7 +32,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 			if (astronautIsFallingLeft == true)
 			{
-				Vector3 directionToMove = rightSideTarget.position - agent.transform.position;
+				Vector3 directionToMove = leftSideTarget.position - agent.transform.position;
 
 				agent.transform.position += directionToMove.normalized * speed.value * Time.deltaTime;
 
