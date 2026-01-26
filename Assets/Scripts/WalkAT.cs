@@ -8,13 +8,10 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class WalkAT : ActionTask {
         public BBParameter<Vector3> velocity;
-		public BBParameter<Transform> astronautPivot;
 		public Vector3 playerInput;
 		private float acceleration;
 		public BBParameter<float> maxSpeed;
 		public float accelerationTime;
-        public BBParameter<Transform> astronautLeftSide;
-        public BBParameter<Transform> astronautRightSide;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -26,12 +23,15 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			// Calculate deceleration
             acceleration = maxSpeed.value / accelerationTime;
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Set the player input to zero
             playerInput = Vector3.zero;
+			// If the player presses arrow keys, set player input to that direction's vector
             if (Input.GetKey(KeyCode.RightArrow))
 			{
 				playerInput += Vector3.right;
@@ -49,17 +49,14 @@ namespace NodeCanvas.Tasks.Actions {
 				playerInput += Vector3.back;
 			}
 
+			// Increase velocity by playerInput multiplied by acceleration and time
             velocity.value += playerInput * acceleration * Time.deltaTime;
 
+			// If velocity is greater than max speed, set velocity to the max speed
             if (velocity.value.magnitude > maxSpeed.value)
             {
                 velocity.value = velocity.value.normalized * maxSpeed.value;
             }
-
-            //astronautPivot.value.position += velocity.value * Time.deltaTime;
-
-            //astronautLeftSide.value.position += velocity.value * Time.deltaTime;
-            //astronautRightSide.value.position += velocity.value * Time.deltaTime;
         }
 
 		//Called when the task is disabled.

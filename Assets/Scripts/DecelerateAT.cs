@@ -8,12 +8,9 @@ namespace NodeCanvas.Tasks.Actions {
 	public class DecelerateAT : ActionTask {
         public BBParameter<bool> astronautIsMoving;
         public BBParameter<Vector3> velocity;
-        public BBParameter<Transform> astronautPivot;
         private float deceleration;
         public BBParameter<float> maxSpeed; 
         public float decelerationTime;
-        public BBParameter<Transform> astronautLeftSide;
-        public BBParameter<Transform> astronautRightSide;
 
 
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -26,14 +23,17 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+            // Calculate deceleration
             deceleration = maxSpeed.value / decelerationTime;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 
+            // If the astronaut is not moving
             if (astronautIsMoving.value == false)
             {
+                // Calculate the change in velocity
                 Vector3 changeInVelocity = velocity.value.normalized * deceleration * Time.deltaTime;
                 // If the player is going to overshoot their deceleration, set horizontal velocity to zero
                 if (changeInVelocity.magnitude > velocity.value.magnitude)
@@ -46,10 +46,6 @@ namespace NodeCanvas.Tasks.Actions {
                     velocity.value -= changeInVelocity;
                 }
             }
-            //astronautPivot.value.position += velocity.value * Time.deltaTime;
-
-            //astronautLeftSide.value.position += velocity.value * Time.deltaTime;
-            //astronautRightSide.value.position += velocity.value * Time.deltaTime;
         }
 
 		//Called when the task is disabled.

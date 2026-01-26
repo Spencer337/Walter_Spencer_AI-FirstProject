@@ -26,10 +26,12 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+			// If the shift key is held down, return false
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 return false;
             }
+			// Otherwise, return true
             else
             {
                 return true;

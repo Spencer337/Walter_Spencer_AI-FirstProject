@@ -27,10 +27,12 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+			// If one of the arrow keys is held, return false
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
             {
 				return false;
             }
+			// Otherwise, return true
             else
             {
                 astronautIsMoving.value = false;

@@ -24,18 +24,23 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			// Set t to 0
 			t = 0;
+			// Set isStanding to false
 			isStanding.value = false;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// If the astronaut is falling left
 			if (isFallingLeft.value == true)
 			{
+				// If the astronaut not done falling, increase t
 				if (t <= 90)
 				{
                     t += Time.deltaTime * fallingSpeed;
                 }
+				// If the astronaut is done falling, set the pivot's rotation to the end falling value and end the action
 				else
 				{
 					//isFallingLeft.value = false;
@@ -44,12 +49,15 @@ namespace NodeCanvas.Tasks.Actions {
 
                 }
 			}
+			// If the astronaut is falling right
             else if (isFallingLeft.value == false)
             {
+				// If the astronaut is not done falling ,decrease t
                 if (t >= -90)
                 {
                     t -= Time.deltaTime * fallingSpeed;
                 }
+                // If the astronaut is done falling, set the pivot's rotation to the end falling value and end the action
                 else
                 {
                     //isFallingLeft.value = true;
@@ -57,6 +65,7 @@ namespace NodeCanvas.Tasks.Actions {
                     EndAction(true);
                 }
             }
+			// Set the astronaut's pivot's z rotation to t
 			astronautPivot.transform.eulerAngles = new Vector3(0, 0, t);
         }
 

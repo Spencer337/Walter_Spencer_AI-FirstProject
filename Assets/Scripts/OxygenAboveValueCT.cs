@@ -29,11 +29,13 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+            // If the oxygen value is greater than the given check value, return true and change isFallingLeft to the opposite state
             if (oxygen.value > checkValue)
             {
                 isFallingLeft.value = !isFallingLeft.value;
                 return true;
             }
+            // Otherwise, return false
             else
             {
                 return false;

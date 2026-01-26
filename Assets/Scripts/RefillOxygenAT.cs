@@ -26,8 +26,13 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Get the oxygen value off the astronaut's blackboard and store it in the currentOxygen float
             float currentOxygen = otherBlackboard.GetVariableValue<float>("Oxygen");
+
+			// Increase currentOxygen by refillRate multiplied by time
             currentOxygen += refillRate.value * Time.deltaTime;
+
+			// Set the oxygen value on the astronaut's blackboard to currentOxygen
             otherBlackboard.SetVariableValue("Oxygen", currentOxygen);
         }
 

@@ -30,12 +30,14 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+            // If the astronatu's oxygen is below the given check value, return true
             if (otherBlackboard.GetVariableValue<float>("Oxygen") <= checkValue)
 			{
                 return true;
             }
-			else
-			{
+            // Otherwise, return false
+            else
+            {
 				return false;
 			}
             

@@ -25,10 +25,12 @@ namespace NodeCanvas.Tasks.Actions {
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
+            // If the pivot's rotation is above 0, set t to 90
             if (astronautPivot.transform.rotation.z > 0)
             {
                 t = 90;
             }
+            // If the pivot's rotation is below 0, set t to 90
             if (astronautPivot.transform.rotation.z < 0)
             {
                 t = -90;
@@ -38,31 +40,32 @@ namespace NodeCanvas.Tasks.Actions {
         //Called once per frame while the action is active.
         protected override void OnUpdate()
         {
+            // If the pivot's rotation is above 0, decrease t by time multiplied by standing speed
             if (astronautPivot.transform.rotation.z > 0)
             {
                 t -= Time.deltaTime * standingSpeed;
+                // If the astronaut has finished standing, set isStranding to true and end the action
                 if (t < 0)
                 {
-                    //Debug.Log("Test");
-                    //astronautPivot.transform.eulerAngles = new Vector3(0, 0, 0);
                     t = 0;
                     isStanding.value = true;
                     EndAction(true);
                 }
 
             }
+            // If the pivot's rotation is below 0, increase t by time multiplied by standing speed
             else if (astronautPivot.transform.rotation.z < 0)
             {
                 t += Time.deltaTime * standingSpeed;
+                // If the astronaut has finished standing, set isStranding to true and end the action
                 if (t > 0)
                 {
-                    //Debug.Log("Test");
-                    //astronautPivot.transform.eulerAngles = new Vector3(0, 0, 0);
                     t = 0;
                     isStanding.value = true;
                     EndAction(true);
                 }
             }
+            // Set the astronaut's pivot's z rotation to t
             astronautPivot.transform.eulerAngles = new Vector3(0, 0, t);
         }
 

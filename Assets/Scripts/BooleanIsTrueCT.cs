@@ -26,10 +26,12 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+			// If the given boolean is true, return true
 			if (checkBoolean.value == true)
 			{
 				return true;
 			}
+			// Otherwise, return false
 			else
 			{
 				return false;

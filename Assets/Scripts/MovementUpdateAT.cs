@@ -25,8 +25,10 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Update the position of the astronaut based on velocity multiplied by time
             astronautPivot.value.position += velocity.value * Time.deltaTime;
 
+            // Update the position of the oxygen tank targets based on velocity multiplied by time
             astronautLeftSide.value.position += velocity.value * Time.deltaTime;
             astronautRightSide.value.position += velocity.value * Time.deltaTime;
         }

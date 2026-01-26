@@ -30,14 +30,19 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Increase t by time
 			t += Time.deltaTime;
+			// If t is greater than the breathe interval
 			if (t >= breatheInterval.value)
 			{
+				// Decrease the oxygen value by 5
                 currentOxygen = agentBlackboard.GetVariableValue<float>("Oxygen");
 				currentOxygen -= 5;
                 agentBlackboard.SetVariableValue("Oxygen", currentOxygen);
+				// Set t back to 0
 				t = 0;
             }
+			// Update the oxygen text on the UI with the current oxygen value
 			oxygenText.text = currentOxygen.ToString();
 		}
 

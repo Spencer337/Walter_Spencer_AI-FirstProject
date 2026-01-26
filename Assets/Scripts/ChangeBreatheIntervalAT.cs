@@ -19,6 +19,7 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			// Set the breathe interval on the blackboard to a new given interval
             agentBlackboard.SetVariableValue("BreatheInterval", newInterval);
             EndAction(true);
 		}

@@ -29,26 +29,31 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-
+			// If the astronaut is falling on the left side
 			if (astronautIsFallingLeft == true)
 			{
+				// Move toward the target transform given in the inspector
 				Vector3 directionToMove = leftSideTarget.position - agent.transform.position;
 
 				agent.transform.position += directionToMove.normalized * speed.value * Time.deltaTime;
 
 				float distanceToTarget = Vector3.Magnitude(directionToMove);
+				// Once close enough to the target, end action
 				if (distanceToTarget < 0.5)
 				{
 					EndAction(true);
 				}
 			}
-			else if (astronautIsFallingLeft == false)
+            // If the astronaut is falling on the right side
+            else if (astronautIsFallingLeft == false)
 			{
+                // Move toward the target transform given in the inspector
                 Vector3 directionToMove = rightSideTarget.position - agent.transform.position;
 
                 agent.transform.position += directionToMove.normalized * speed.value * Time.deltaTime;
 
                 float distanceToTarget = Vector3.Magnitude(directionToMove);
+                // Once close enough to the target, end action
                 if (distanceToTarget < 0.5)
                 {
                     EndAction(true);
