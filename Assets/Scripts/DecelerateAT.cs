@@ -1,20 +1,20 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class WalkAT : ActionTask {
+	public class DecelerateAT : ActionTask {
+        public BBParameter<bool> astronautIsMoving;
         public BBParameter<Vector3> velocity;
-		public BBParameter<Transform> astronautPivot;
-		public Vector3 playerInput;
-		private float acceleration;
-		public BBParameter<float> maxSpeed;
-		public float accelerationTime;
+        public BBParameter<Transform> astronautPivot;
+        private float deceleration;
+        public BBParameter<float> maxSpeed; 
+        public float decelerationTime;
         public BBParameter<Transform> astronautLeftSide;
         public BBParameter<Transform> astronautRightSide;
+
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -26,36 +26,26 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-            acceleration = maxSpeed.value / accelerationTime;
-        }
+            deceleration = maxSpeed.value / decelerationTime;
+		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            playerInput = Vector3.zero;
-            if (Input.GetKey(KeyCode.RightArrow))
-			{
-				playerInput += Vector3.right;
-			}
-			if (Input.GetKey(KeyCode.LeftArrow))
-			{
-				playerInput += Vector3.left;
-			}
-			if (Input.GetKey(KeyCode.UpArrow))
-			{
-				playerInput += Vector3.forward;
-			}
-			if (Input.GetKey(KeyCode.DownArrow))
-			{
-				playerInput += Vector3.back;
-			}
 
-            velocity.value += playerInput * acceleration * Time.deltaTime;
-
-            if (velocity.value.magnitude > maxSpeed.value)
+            if (astronautIsMoving.value == false)
             {
-                velocity.value = velocity.value.normalized * maxSpeed.value;
+                Vector3 changeInVelocity = velocity.value.normalized * deceleration * Time.deltaTime;
+                // If the player is going to overshoot their deceleration, set horizontal velocity to zero
+                if (changeInVelocity.magnitude > velocity.value.magnitude)
+                {
+                    velocity.value = Vector3.zero;
+                }
+                // Otherwise, decelerate normally
+                else
+                {
+                    velocity.value -= changeInVelocity;
+                }
             }
-
             //astronautPivot.value.position += velocity.value * Time.deltaTime;
 
             //astronautLeftSide.value.position += velocity.value * Time.deltaTime;

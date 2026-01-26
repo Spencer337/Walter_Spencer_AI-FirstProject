@@ -11,10 +11,11 @@ namespace NodeCanvas.Tasks.Actions {
         Blackboard agentBlackboard;
 		public float fallingSpeed;
 		public float t;
+		public BBParameter<bool> isStanding;
 
-        //Use for initialization. This is called only once in the lifetime of the task.
-        //Return null if init was successfull. Return an error string otherwise
-        protected override string OnInit() {
+		//Use for initialization. This is called only once in the lifetime of the task.
+		//Return null if init was successfull. Return an error string otherwise
+		protected override string OnInit() {
             agentBlackboard = agent.GetComponent<Blackboard>();
             return null;
 		}
@@ -24,6 +25,7 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
 			t = 0;
+			isStanding.value = false;
 		}
 
 		//Called once per frame while the action is active.

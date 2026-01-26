@@ -6,6 +6,7 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Conditions {
 
 	public class ArrowKeyPressedCT : ConditionTask {
+		public BBParameter<bool> astronautIsMoving;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -28,6 +29,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		protected override bool OnCheck() {
 			if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
 			{
+				astronautIsMoving.value = true;
                 return true;
             }
 			else

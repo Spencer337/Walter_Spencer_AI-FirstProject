@@ -10,6 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
         Blackboard agentBlackboard;
         public float standingSpeed;
         public float t;
+        public BBParameter<bool> isStanding; 
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -45,6 +46,7 @@ namespace NodeCanvas.Tasks.Actions {
                     //Debug.Log("Test");
                     //astronautPivot.transform.eulerAngles = new Vector3(0, 0, 0);
                     t = 0;
+                    isStanding.value = true;
                     EndAction(true);
                 }
 
@@ -57,6 +59,7 @@ namespace NodeCanvas.Tasks.Actions {
                     //Debug.Log("Test");
                     //astronautPivot.transform.eulerAngles = new Vector3(0, 0, 0);
                     t = 0;
+                    isStanding.value = true;
                     EndAction(true);
                 }
             }

@@ -1,13 +1,11 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using TMPro;
+using UnityEngine;
 
 
 namespace NodeCanvas.Tasks.Conditions {
 
-	public class OxygenBelowValueCT : ConditionTask {
-        public BBParameter<float> oxygen;
-		public float checkValue;
+	public class ArrowKeyReleasedCT : ConditionTask {
         public BBParameter<bool> astronautIsMoving;
 
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -29,15 +27,15 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
-			if (oxygen.value <= checkValue)
-			{
-				astronautIsMoving.value = false;
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            {
+				return false;
+            }
+            else
+            {
+                astronautIsMoving.value = false;
                 return true;
             }
-			else
-			{
-				return false;
-			}
-		}
+        }
 	}
 }

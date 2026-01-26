@@ -1,18 +1,15 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using TMPro;
 
 
 namespace NodeCanvas.Tasks.Conditions {
 
-	public class OxygenBelowValueCT : ConditionTask {
-        public BBParameter<float> oxygen;
-		public float checkValue;
-        public BBParameter<bool> astronautIsMoving;
+	public class BooleanIsTrueCT : ConditionTask {
+		public BBParameter<bool> checkBoolean;
 
-        //Use for initialization. This is called only once in the lifetime of the task.
-        //Return null if init was successfull. Return an error string otherwise
-        protected override string OnInit(){
+		//Use for initialization. This is called only once in the lifetime of the task.
+		//Return null if init was successfull. Return an error string otherwise
+		protected override string OnInit(){
 			return null;
 		}
 
@@ -29,11 +26,10 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
-			if (oxygen.value <= checkValue)
+			if (checkBoolean.value == true)
 			{
-				astronautIsMoving.value = false;
-                return true;
-            }
+				return true;
+			}
 			else
 			{
 				return false;

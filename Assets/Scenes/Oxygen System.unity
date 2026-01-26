@@ -523,11 +523,11 @@ Transform:
   m_GameObject: {fileID: 407306457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -7.339733, y: -1.369999, z: 0.32948065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1105040453}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415242828
 GameObject:
@@ -554,11 +554,11 @@ Transform:
   m_GameObject: {fileID: 415242828}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: -1.3397331, y: -1.369999, z: 0.32948065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1105040453}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &608772831
 GameObject:
@@ -1034,8 +1034,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1175002956}
-  - {fileID: 415242829}
-  - {fileID: 407306458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175002950
@@ -1076,11 +1074,18 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BreatheInterval":{"_value":1.0,"_name":"BreatheInterval","_id":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isFallingLeft":{"_value":true,"_name":"isFallingLeft","_id":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Velocity":{"_name":"Velocity","_id":"cf2bb170-afcc-4f5f-b0f9-52aa1c2cc924","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AstronautPivot":{"_value":1,"_name":"AstronautPivot","_id":"05b14f6c-0039-4794-a576-c50b6356b819","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AstronautIsMoving":{"_name":"AstronautIsMoving","_id":"aaa9d11a-825d-410e-89ff-21188f0e2f48","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"maxSpeed":{"_value":5.0,"_name":"maxSpeed","_id":"b0bd464c-e8a9-4a89-a3be-45caf8ee8154","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"AstronautPivot":{"_value":1,"_name":"AstronautPivot","_id":"240a4e60-484b-4f68-90bd-1c43386dc010","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AstronautLeftSide":{"_value":2,"_name":"AstronautLeftSide","_id":"412b0ae3-4130-451a-9d85-3f8979cf7cda","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AstronautRightSide":{"_value":3,"_name":"AstronautRightSide","_id":"9fe717fb-7e90-4578-a7f9-586ec3d3e2c3","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"isStanding":{"_value":true,"_name":"isStanding","_id":"b2835574-dbbf-44fe-a87f-cfd9cc463316","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
-  - {fileID: 1105040452}
+  - {fileID: 1105040453}
+  - {fileID: 415242829}
+  - {fileID: 407306458}
   _serializedVariables:
   - _json: '{"_value":100.0,"_name":"Oxygen","_id":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
@@ -1094,11 +1099,30 @@ MonoBehaviour:
   - _json: '{"_name":"Velocity","_id":"cf2bb170-afcc-4f5f-b0f9-52aa1c2cc924","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
-  - _json: '{"_value":1,"_name":"AstronautPivot","_id":"05b14f6c-0039-4794-a576-c50b6356b819","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+  - _json: '{"_name":"AstronautIsMoving","_id":"aaa9d11a-825d-410e-89ff-21188f0e2f48","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":5.0,"_name":"maxSpeed","_id":"b0bd464c-e8a9-4a89-a3be-45caf8ee8154","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"AstronautPivot","_id":"240a4e60-484b-4f68-90bd-1c43386dc010","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
-    - {fileID: 1105040452}
+    - {fileID: 1105040453}
+  - _json: '{"_value":1,"_name":"AstronautLeftSide","_id":"412b0ae3-4130-451a-9d85-3f8979cf7cda","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 415242829}
+  - _json: '{"_value":1,"_name":"AstronautRightSide","_id":"9fe717fb-7e90-4578-a7f9-586ec3d3e2c3","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 407306458}
+  - _json: '{"_value":true,"_name":"isStanding","_id":"b2835574-dbbf-44fe-a87f-cfd9cc463316","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1175002952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"newInterval":1.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"targetColor":{"r":1.0,"g":1.0,"b":1.0},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Awake","_position":{"x":539.0,"y":490.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":0.5,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"astronautPivot":3,"standingSpeed":50.0,"$type":"NodeCanvas.Tasks.Actions.StandUpAT"},{"targetColor":{"r":0.8584906,"g":0.3280082,"b":0.3280082},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Panicked","_position":{"x":792.0,"y":379.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":3.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"isFallingLeft":{"_name":"isFallingLeft","_targetVariableID":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3"},"astronautPivot":3,"fallingSpeed":50.0,"$type":"NodeCanvas.Tasks.Actions.FallOverAT"},{"targetColor":{"r":0.2342916,"g":0.3035057,"b":0.6132076},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Asleep","_position":{"x":1004.0,"y":255.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_nestedFSM":{"_value":4},"_position":{"x":943.0,"y":753.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"3"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"}]},"_position":{"x":1318.0,"y":518.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyPressedCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":50.0,"isFallingLeft":{},"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyPressedCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":20.0,"isFallingLeft":{"_name":"isFallingLeft","_targetVariableID":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3"},"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"newInterval":1.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"targetColor":{"r":1.0,"g":1.0,"b":1.0},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Awake","_position":{"x":539.0,"y":490.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":0.5,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"astronautPivot":3,"standingSpeed":50.0,"isStanding":{"_name":"isStanding","_targetVariableID":"b2835574-dbbf-44fe-a87f-cfd9cc463316"},"$type":"NodeCanvas.Tasks.Actions.StandUpAT"},{"targetColor":{"r":0.8584906,"g":0.3280082,"b":0.3280082},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Panicked","_position":{"x":792.0,"y":379.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"newInterval":3.0,"$type":"NodeCanvas.Tasks.Actions.ChangeBreatheIntervalAT"},{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"_isDisabled":true,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"isFallingLeft":{"_name":"isFallingLeft","_targetVariableID":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3"},"astronautPivot":3,"fallingSpeed":50.0,"isStanding":{"_name":"isStanding","_targetVariableID":"b2835574-dbbf-44fe-a87f-cfd9cc463316"},"$type":"NodeCanvas.Tasks.Actions.FallOverAT"},{"targetColor":{"r":0.2342916,"g":0.3035057,"b":0.6132076},"astronautHead":2,"$type":"NodeCanvas.Tasks.Actions.BecomeTargetColorAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Asleep","_position":{"x":1004.0,"y":255.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_nestedFSM":{"_value":4},"_position":{"x":943.0,"y":753.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"3"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"breatheInterval":{"_name":"BreatheInterval","_targetVariableID":"c8e2e76b-7eb5-4fc6-8757-64aab9dac6e5"},"oxygenText":1,"$type":"NodeCanvas.Tasks.Actions.BreatheAT"},{"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"velocity":{"_name":"Velocity","_targetVariableID":"cf2bb170-afcc-4f5f-b0f9-52aa1c2cc924"},"astronautPivot":{"_name":"AstronautPivot","_targetVariableID":"240a4e60-484b-4f68-90bd-1c43386dc010"},"maxSpeed":{"_name":"maxSpeed","_targetVariableID":"b0bd464c-e8a9-4a89-a3be-45caf8ee8154"},"decelerationTime":2.0,"astronautLeftSide":{"_name":"AstronautLeftSide","_targetVariableID":"412b0ae3-4130-451a-9d85-3f8979cf7cda"},"astronautRightSide":{"_name":"AstronautRightSide","_targetVariableID":"9fe717fb-7e90-4578-a7f9-586ec3d3e2c3"},"$type":"NodeCanvas.Tasks.Actions.DecelerateAT"},{"astronautPivot":{"_name":"AstronautPivot","_targetVariableID":"240a4e60-484b-4f68-90bd-1c43386dc010"},"astronautLeftSide":{"_name":"AstronautLeftSide","_targetVariableID":"412b0ae3-4130-451a-9d85-3f8979cf7cda"},"astronautRightSide":{"_name":"AstronautRightSide","_targetVariableID":"9fe717fb-7e90-4578-a7f9-586ec3d3e2c3"},"velocity":{"_name":"Velocity","_targetVariableID":"cf2bb170-afcc-4f5f-b0f9-52aa1c2cc924"},"$type":"NodeCanvas.Tasks.Actions.MovementUpdateAT"}]},"_position":{"x":1319.0,"y":517.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyPressedCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":50.0,"isFallingLeft":{},"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyPressedCT"},{"checkBoolean":{"_name":"isStanding","_targetVariableID":"b2835574-dbbf-44fe-a87f-cfd9cc463316"},"$type":"NodeCanvas.Tasks.Conditions.BooleanIsTrueCT"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":20.0,"isFallingLeft":{"_name":"isFallingLeft","_targetVariableID":"3d3ef004-7d29-457e-94c5-cb9dbebbdce3"},"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":10.0,"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyReleasedCT"},{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"isFallingLeft":{},"$type":"NodeCanvas.Tasks.Conditions.OxygenAboveValueCT"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"astronautIsMoving":{"_name":"AstronautIsMoving","_targetVariableID":"aaa9d11a-825d-410e-89ff-21188f0e2f48"},"$type":"NodeCanvas.Tasks.Conditions.ArrowKeyReleasedCT"},{"oxygen":{"_name":"Oxygen","_targetVariableID":"7d29ce1e-3a46-4f78-834e-32e8585ea3ae"},"checkValue":30.0,"astronautIsMoving":{},"$type":"NodeCanvas.Tasks.Conditions.OxygenBelowValueCT"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 608772833}
@@ -1123,7 +1147,7 @@ MonoBehaviour:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -38, y: -143}
+    _translation: {x: 113, y: -147}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -1492,5 +1516,7 @@ SceneRoots:
   - {fileID: 262176282}
   - {fileID: 780398480}
   - {fileID: 1105040453}
+  - {fileID: 415242829}
+  - {fileID: 407306458}
   - {fileID: 1250270120}
   - {fileID: 758999789}
