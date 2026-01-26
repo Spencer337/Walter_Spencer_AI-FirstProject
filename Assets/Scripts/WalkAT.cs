@@ -8,15 +8,19 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class WalkAT : ActionTask {
         public BBParameter<Vector3> velocity;
+		public BBParameter<GameObject> astronautPivot;
 		public Vector3 playerInput;
-		public float acceleration;
-		public float deceleration;
+		private float acceleration;
+		private float deceleration;
+		public float maxSpeed;
+		public float accelerationTime;
+		public float decelerationTime;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
-			//float height = agent.transform.position.y;
-			//velocity.value = agent.transform.position;
+			acceleration = maxSpeed / accelerationTime;
+			deceleration = maxSpeed / decelerationTime;
 			return null;
 		}
 
@@ -48,9 +52,10 @@ namespace NodeCanvas.Tasks.Actions {
 			{
 				playerInput = Vector3.zero;
 			}
+
 			if (playerInput.magnitude > 0)
 			{
-                velocity.value = playerInput * acceleration * Time.deltaTime;
+                velocity.value += playerInput * acceleration * Time.deltaTime;
             }
 			else
 			{
@@ -66,7 +71,13 @@ namespace NodeCanvas.Tasks.Actions {
                     velocity.value -= changeInVelocity;
                 }
             }
-			agent.transform.position += velocity.value;
+
+            if (velocity.value.magnitude > maxSpeed)
+            {
+                velocity = velocity.value.normalized * maxSpeed;
+            }
+
+            astronautPivot.value.transform.position += velocity.value * Time.deltaTime;
         }
 
 		//Called when the task is disabled.
