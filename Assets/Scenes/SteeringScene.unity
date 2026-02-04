@@ -132,7 +132,8 @@ GameObject:
   - component: {fileID: 27735774}
   - component: {fileID: 27735773}
   - component: {fileID: 27735772}
-  m_Layer: 0
+  - component: {fileID: 27735777}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,6 +251,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27735777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27735770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea7e7f00e9e90045866176e0e8237fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &71733589
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +279,8 @@ GameObject:
   - component: {fileID: 71733592}
   - component: {fileID: 71733591}
   - component: {fileID: 71733590}
+  - component: {fileID: 71733596}
+  - component: {fileID: 71733595}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Untagged
@@ -381,6 +399,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71733595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71733589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"TargetTransform":{"_name":"TargetTransform","_id":"887f8128-3074-43a5-a09a-9d26797be084","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences: []
+  _serializedVariables:
+  - _json: '{"_name":"TargetTransform","_id":"887f8128-3074-43a5-a09a-9d26797be084","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+--- !u!114 &71733596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71733589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":406.0,"y":363.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"887f8128-3074-43a5-a09a-9d26797be084"},"seekFrequency":1.0,"$type":"NodeCanvas.Tasks.Actions.SeekAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Seek","_position":{"x":577.0,"y":252.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"887f8128-3074-43a5-a09a-9d26797be084"},"findRadius":5.0,"playerLayerMask":{"value":128},"$type":"NodeCanvas.Tasks.Actions.FindAT"}]},"_position":{"x":742.0,"y":311.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"887f8128-3074-43a5-a09a-9d26797be084"},"$type":"NodeCanvas.Tasks.Conditions.IsFoundCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"887f8128-3074-43a5-a09a-9d26797be084"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.IsFoundCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 71733595}
 --- !u!1 &98475747
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +742,62 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &1457841023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457841025}
+  - component: {fileID: 1457841024}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1457841024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457841023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55266791f993bc341970d1eb723f365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMasterVolume: 100
+  _defaultMusicVolume: 100
+  _defaultEffectsVolume: 100
+  Sounds:
+  - name: Caw
+    clip: {fileID: 8300000, guid: ef1926758cf770e43bffceb67a705f34, type: 3}
+    volume: 1
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  SoundVariants: []
+--- !u!4 &1457841025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457841023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.44277525, y: 2.3284752, z: 4.8102837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479132519
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +1026,7 @@ GameObject:
   - component: {fileID: 1649787527}
   - component: {fileID: 1649787526}
   - component: {fileID: 1649787525}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,6 +1136,8 @@ GameObject:
   - component: {fileID: 1841933644}
   - component: {fileID: 1841933643}
   - component: {fileID: 1841933642}
+  - component: {fileID: 1841933648}
+  - component: {fileID: 1841933647}
   m_Layer: 0
   m_Name: Hider
   m_TagString: Untagged
@@ -1131,6 +1256,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841933647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841933641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"TargetTransform":{"_name":"TargetTransform","_id":"fdcb75d1-345d-44f1-b4ff-294246398000","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences: []
+  _serializedVariables:
+  - _json: '{"_name":"TargetTransform","_id":"fdcb75d1-345d-44f1-b4ff-294246398000","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+--- !u!114 &1841933648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841933641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":409.0,"y":323.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"fdcb75d1-345d-44f1-b4ff-294246398000"},"fleeDistance":3.0,"fleeFrequency":1.0,"$type":"NodeCanvas.Tasks.Actions.FleeAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":588.0,"y":206.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"fdcb75d1-345d-44f1-b4ff-294246398000"},"findRadius":5.0,"playerLayerMask":{"value":128},"$type":"NodeCanvas.Tasks.Actions.FindAT"}]},"_position":{"x":726.0,"y":290.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"fdcb75d1-345d-44f1-b4ff-294246398000"},"$type":"NodeCanvas.Tasks.Conditions.IsFoundCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"TargetTransform","_targetVariableID":"fdcb75d1-345d-44f1-b4ff-294246398000"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.IsFoundCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 1841933647}
 --- !u!1 &1895795083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,3 +1772,4 @@ SceneRoots:
   - {fileID: 1841933646}
   - {fileID: 98475752}
   - {fileID: 1920922457}
+  - {fileID: 1457841025}
