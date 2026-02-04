@@ -10,8 +10,8 @@ namespace NodeCanvas.Tasks.Actions
 	public class SearchActionTask : ActionTask
 	{
 		public BBParameter<NavMeshAgent> navAgent;
-		public BBParameter<Vector3> startingPosition;
-		public Vector3 targetPosition;
+		public float stoppingDistance;
+		public float searchRadius;
 		protected override string OnInit()
 		{
 			return null;
@@ -20,28 +20,26 @@ namespace NodeCanvas.Tasks.Actions
 		protected override void OnExecute()
 		{
 			//Choose a random destination on the navmesh
-			//Set the path to that position
-			targetPosition = Random.insideUnitSphere * 3;
-			targetPosition.y = startingPosition.value.y;
+			
+			Vector3 randomPoint = Random.insideUnitSphere * searchRadius + agent.transform.position;
 
-			NavMeshHit hit;
-			if (NavMesh.SamplePosition(targetPosition, out hit, 3f, NavMesh.AllAreas) == false)
+			NavMeshHit navHit;
+			if (!NavMesh.SamplePosition(randomPoint, out navHit, searchRadius, NavMesh.AllAreas))
 			{
-				Debug.Log("Could not find location");
-            }
-			else
-			{
-                navAgent.value.SetDestination(targetPosition);
-            }
+				return;
+			}
+
+            //Set the path to that position
+            navAgent.value.SetDestination(navHit.position);
 				
         }
 
 		protected override void OnUpdate()
 		{
 			//When they have arrived then end the task
-			if(navAgent.value.remainingDistance <= 0.3)
+			if(navAgent.value.pathPending && navAgent.value.remainingDistance <= stoppingDistance)
 			{
-				EndAction();
+				EndAction(true);
 			}
 		}
 
