@@ -18,8 +18,11 @@ namespace NodeCanvas.Tasks.Conditions {
 
 		//Called whenever the condition gets enabled.
 		protected override void OnEnable() {
-			
-		}
+            if (inputField.value.text != "")
+            {
+                randomNumber = Random.Range(0f, 100f);
+            }
+        }
 
 		//Called whenever the condition gets disabled.
 		protected override void OnDisable() {
@@ -29,11 +32,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
-            if (inputField.value.text != "")
-            {
-				Debug.Log("Randomizing");
-                randomNumber = Random.Range(0f, 100f);
-            }
+
             if (randomNumber > 50)
 			{
                 randomNumber = 0;

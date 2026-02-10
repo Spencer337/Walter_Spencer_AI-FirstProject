@@ -1,15 +1,18 @@
 using NodeCanvas.Framework;
+using NUnit.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
 	public class SquawkAT : ActionTask {
-        public BBParameter<float> needValue;
+        public BBParameter<float> socialValue;
 		public BBParameter<AudioClip> squawkSound;
-		public BBParameter<GameObject> soundSprite; 
-		public float increaseValue;
+		public BBParameter<GameObject> soundSprite;
+        public BBParameter<Slider> socialSlider;
+        public float increaseValue;
 		public float maxTime;
 		public float t;
 
@@ -23,21 +26,23 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-            needValue.value += increaseValue;
             AudioSource.PlayClipAtPoint(squawkSound.value, agent.transform.position);
             soundSprite.value.SetActive(true);
+			t = 0;
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-    //        t += Time.deltaTime;
-    //        if (t >= maxTime)
-    //        {
-    //            needValue.value += increaseValue;
-    //            AudioSource.PlayClipAtPoint(squawkSound.value, agent.transform.position);
-				//soundSprite.value.SetActive(true);
-    //        }
-        }
+			t += Time.deltaTime;
+			if (t >= maxTime)
+			{
+                socialValue.value += increaseValue;
+                socialSlider.value.value = socialValue.value;
+                soundSprite.value.SetActive(false);
+				t = 0;
+                EndAction(true);
+			}
+		}
 
 		//Called when the task is disabled.
 		protected override void OnStop() {

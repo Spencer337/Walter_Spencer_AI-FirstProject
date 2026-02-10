@@ -29,7 +29,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
             // If the need is above the given check value, return true
-            if (needValue.value >= checkValue)
+            if (needValue.value > checkValue)
             {
                 return true;
             }

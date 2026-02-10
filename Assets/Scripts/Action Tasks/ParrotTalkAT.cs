@@ -12,6 +12,9 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<TMPro.TMP_Text> speakText;
 		public BBParameter<TMPro.TMP_InputField> inputField;
         public float increaseValue;
+        public float maxTime;
+        public float t; 
+        public BBParameter<AudioClip> talkSound;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -23,17 +26,22 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			socialValue.value += increaseValue;
-            socialSlider.value.value = socialValue.value;
-			speakText.value.text = inputField.value.text;
-			//Debug.Log(inputField.value.text);
-            EndAction(true);
+            AudioSource.PlayClipAtPoint(talkSound.value, agent.transform.position);
+            speakText.value.text = inputField.value.text;
+			t = 0;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			
-		}
+            t += Time.deltaTime;
+            if (t >= maxTime)
+            {
+                socialValue.value += increaseValue;
+                socialSlider.value.value = socialValue.value;
+                speakText.value.text = "";
+                EndAction(true);
+            }
+        }
 
 		//Called when the task is disabled.
 		protected override void OnStop() {
