@@ -1,17 +1,17 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class SquawkAT : ActionTask {
-        public BBParameter<float> needValue;
-		public BBParameter<AudioClip> squawkSound;
-		public BBParameter<GameObject> soundSprite; 
-		public float increaseValue;
-		public float maxTime;
-		public float t;
+	public class ParrotTalkAT : ActionTask {
+        public BBParameter<float> socialValue;
+        public BBParameter<Slider> socialSlider;
+        public BBParameter<TMPro.TMP_Text> speakText;
+		public BBParameter<TMPro.TMP_InputField> inputField;
+        public float increaseValue;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -23,21 +23,17 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-            needValue.value += increaseValue;
-            AudioSource.PlayClipAtPoint(squawkSound.value, agent.transform.position);
-            soundSprite.value.SetActive(true);
-        }
+			socialValue.value += increaseValue;
+            socialSlider.value.value = socialValue.value;
+			speakText.value.text = inputField.value.text;
+			//Debug.Log(inputField.value.text);
+            EndAction(true);
+		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-    //        t += Time.deltaTime;
-    //        if (t >= maxTime)
-    //        {
-    //            needValue.value += increaseValue;
-    //            AudioSource.PlayClipAtPoint(squawkSound.value, agent.transform.position);
-				//soundSprite.value.SetActive(true);
-    //        }
-        }
+			
+		}
 
 		//Called when the task is disabled.
 		protected override void OnStop() {

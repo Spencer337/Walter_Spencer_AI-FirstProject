@@ -35,7 +35,7 @@ namespace NodeCanvas.Tasks.Actions {
             if (t >= maxTime)
             {
                 // Increase the hunger value and update the need slider
-                hungerValue.value -= increaseValue;
+                hungerValue.value += increaseValue;
                 hungerSlider.value.value = hungerValue.value;
                 // Reset t to 0
                 t = 0;
