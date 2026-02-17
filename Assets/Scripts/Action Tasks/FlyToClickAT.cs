@@ -10,7 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
 	public class FlyToClickAT : ActionTask {
 		public BBParameter<Vector3> destinationPoint;
 		public BBParameter<bool> isFlying;
-		public BBParameter<Transform> parrotBody;
+		//public BBParameter<Transform> parrotBody;
 		public BBParameter<NavMeshAgent> navAgent;
 		public float t;
 		public Vector3 startPos, endPos;
@@ -27,10 +27,10 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
 			// Set the start position to the parrot's position
-			startPos = parrotBody.value.position;
+			startPos = agent.transform.position;
 			// Set the end position to the destination point 
 			endPos = destinationPoint.value;
-			endPos.y += 1.5f;
+			endPos.y += 2.5f;
 			// Stop updating the transform to be synchronized with the nav agent
 			navAgent.value.updatePosition = false;
 		}
@@ -40,10 +40,11 @@ namespace NodeCanvas.Tasks.Actions {
 			// Increase t by time multiplied by fly speed
 			t += Time.deltaTime * flySpeed;
 			// Lerp the parrot's position between the start and end
-			parrotBody.value.position = Vector3.Lerp(startPos, endPos, t);
+			agent.transform.position = Vector3.Lerp(startPos, endPos, t);
 			// If t is greater than 1, reset t and set isFlying to false
 			if (t >= 1)
 			{
+				navAgent.value.Warp(agent.transform.position);
 				t = 0;
 				isFlying.value = false;
 				EndAction(true);

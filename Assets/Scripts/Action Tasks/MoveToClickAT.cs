@@ -12,7 +12,9 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<NavMeshAgent> navAgent;
 		public BBParameter<bool> isFlying;
 		public BBParameter<Vector3> destinationPoint;
-		public Vector3 mousePosition;
+        public BBParameter<bool> reachedMovementDestination;
+
+        public Vector3 mousePosition;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
@@ -23,6 +25,9 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+            // Set the reachedMovementDestination boolean to false
+            reachedMovementDestination.value = false;
+
             // Start updating the transform to be synchronized with the nav agent
             navAgent.value.updatePosition = true;
 
@@ -50,19 +55,22 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			// If the path is not loading and there is no more distance on the path, end the action
-            if (navAgent.value.pathPending == false && navAgent.value.remainingDistance <= 0)
+            // If the path is not full, reset the path and set is flying to true
+            // Then, end the action
+            if (navAgent.value.pathStatus != NavMeshPathStatus.PathComplete)
             {
-                EndAction(true);
-            }
-			// If the path is partial instead of full, reset the path and set is flying to true
-			// Then, end the action
-			if (navAgent.value.pathStatus == NavMeshPathStatus.PathPartial)
-			{
-				navAgent.value.ResetPath();
+                navAgent.value.ResetPath();
                 isFlying.value = true;
                 EndAction(true);
-			}
+            }
+            // If the path is not loading and there is no more distance on the path, end the action
+            if (navAgent.value.pathPending == false && navAgent.value.remainingDistance <= 0.5)
+            {
+                // Set the reachedMovementDestination boolean to false
+                reachedMovementDestination.value = true;
+                EndAction(true);
+            }
+			
         }
 
 		//Called when the task is disabled.
