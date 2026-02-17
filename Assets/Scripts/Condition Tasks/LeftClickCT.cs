@@ -26,8 +26,16 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
+			// If the left mouse button was clicked this frame return true, otherwise return false
             bool leftMouseClicked = Mouse.current.leftButton.wasPressedThisFrame;
-			return leftMouseClicked;
+            if (leftMouseClicked == true)
+            {
+				return true;
+            }
+			else
+			{
+				return false;
+			}
 		}
 	}
 }

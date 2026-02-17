@@ -26,14 +26,20 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			// Play the squawk audio clip
             AudioSource.PlayClipAtPoint(squawkSound.value, agent.transform.position);
+			// Set the sound sprite to visible
             soundSprite.value.SetActive(true);
+			// Reset t to 0
 			t = 0;
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Increase t by time
 			t += Time.deltaTime;
+			// If t is greater than max time, increase the social need by a set value and update the slider
+			// Set the sound sprite to false
 			if (t >= maxTime)
 			{
                 socialValue.value += increaseValue;

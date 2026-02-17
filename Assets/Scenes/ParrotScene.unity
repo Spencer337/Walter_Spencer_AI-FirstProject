@@ -2391,7 +2391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1323408366
 Transform:
   m_ObjectHideFlags: 0
@@ -2456,7 +2456,9 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"navAgent":{"_value":12,"_name":"navAgent","_id":"c8996005-a247-4b00-af88-ae0d534e748a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
     UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"groundLayerMask":{"_value":{"value":8},"_name":"groundLayerMask","_id":"f2009abd-b1c4-4798-b16f-a2ee06e9c891","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"isFlying":{"_name":"isFlying","_id":"0e0b3155-1175-4d53-8c22-f2dfbb59e506","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"destinationPoint":{"_name":"destinationPoint","_id":"11b682cc-def2-498c-8a3d-6070c15efe02","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"parrotBody":{"_value":13,"_name":"parrotBody","_id":"360c0b92-9fa6-4535-969b-8499c6f9464f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 8300000, guid: ef1926758cf770e43bffceb67a705f34, type: 3}
@@ -2471,6 +2473,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 217394d51e8d13642a664e577b3d2b63, type: 3}
   - {fileID: 802324586}
   - {fileID: 255867971}
+  - {fileID: 255867967}
   _serializedVariables:
   - _json: '{"_value":100.0,"_name":"socialNeed","_id":"ac9b76b1-f251-40a9-95c0-0e3863329991","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
@@ -2547,6 +2550,14 @@ MonoBehaviour:
   - _json: '{"_name":"isFlying","_id":"0e0b3155-1175-4d53-8c22-f2dfbb59e506","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"destinationPoint","_id":"11b682cc-def2-498c-8a3d-6070c15efe02","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"parrotBody","_id":"360c0b92-9fa6-4535-969b-8499c6f9464f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 255867967}
 --- !u!114 &1455471115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Perch","_position":{"x":979.0,"y":406.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_position":{"x":1185.0,"y":562.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_nestedFSM":{"_value":2},"_position":{"x":701.0,"y":519.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"sleepValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"sleepSlider":{"_name":"sleepBar","_targetVariableID":"644b46d2-8ff0-419b-b32f-c3c483a95dbb"},"fillRate":10.0,"$type":"NodeCanvas.Tasks.Actions.ParrotSleepAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleep","_position":{"x":751.0,"y":281.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"navAgent":{"_name":"navAgent","_targetVariableID":"c8996005-a247-4b00-af88-ae0d534e748a"},"foodTransform":3,"$type":"NodeCanvas.Tasks.Actions.MoveToFoodAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Move","_position":{"x":1060.0,"y":167.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_actionList":{"executionMode":1,"actions":[{"hungerValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"hungerSlider":{"_name":"hungerBar","_targetVariableID":"d4063216-31f6-488d-8af1-222081b4687e"},"increaseValue":30.0,"maxTime":0.5,"$type":"NodeCanvas.Tasks.Actions.ParrotEatAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eat","_position":{"x":967.0,"y":20.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"5"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Fluff","_position":{"x":1204.0,"y":276.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"needSlider":{"_name":"socialBar","_targetVariableID":"5057edb0-771f-4f03-81fd-b109f9febd7c"},"maxTime":1.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"needSlider":{"_name":"hungerBar","_targetVariableID":"d4063216-31f6-488d-8af1-222081b4687e"},"maxTime":1.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"needSlider":{"_name":"sleepBar","_targetVariableID":"644b46d2-8ff0-419b-b32f-c3c483a95dbb"},"maxTime":3.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"}]},"_position":{"x":1461.0,"y":326.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.LeftClickCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Perch","_position":{"x":979.0,"y":406.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_position":{"x":1185.0,"y":562.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_nestedFSM":{"_value":2},"_position":{"x":695.0,"y":554.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"sleepValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"sleepSlider":{"_name":"sleepBar","_targetVariableID":"644b46d2-8ff0-419b-b32f-c3c483a95dbb"},"fillRate":10.0,"$type":"NodeCanvas.Tasks.Actions.ParrotSleepAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleep","_position":{"x":739.0,"y":280.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"actions":[{"navAgent":{"_name":"navAgent","_targetVariableID":"c8996005-a247-4b00-af88-ae0d534e748a"},"foodTransform":3,"$type":"NodeCanvas.Tasks.Actions.MoveToFoodAT"},{"hungerValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"hungerSlider":{"_name":"hungerBar","_targetVariableID":"d4063216-31f6-488d-8af1-222081b4687e"},"increaseValue":20.0,"maxTime":0.5,"$type":"NodeCanvas.Tasks.Actions.ParrotEatAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eat","_position":{"x":1089.0,"y":17.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Fluff","_position":{"x":1204.0,"y":276.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"needSlider":{"_name":"socialBar","_targetVariableID":"5057edb0-771f-4f03-81fd-b109f9febd7c"},"maxTime":1.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"needSlider":{"_name":"hungerBar","_targetVariableID":"d4063216-31f6-488d-8af1-222081b4687e"},"maxTime":1.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"needSlider":{"_name":"sleepBar","_targetVariableID":"644b46d2-8ff0-419b-b32f-c3c483a95dbb"},"maxTime":3.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"}]},"_position":{"x":1461.0,"y":326.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.LeftClickCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"ac9b76b1-f251-40a9-95c0-0e3863329991"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"c5234e89-f8a8-4531-bba4-e1e56ea054a1"},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"0c931323-afa7-4a02-948c-936b0831366e"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 11400000, guid: 0e40818cfa7d6e2408ff1b2e92a1b59b, type: 2}
@@ -2570,8 +2581,8 @@ MonoBehaviour:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 138, y: 109}
-    _zoomFactor: 0.6829493
+    _translation: {x: -140, y: 127}
+    _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -2589,7 +2600,7 @@ Transform:
   m_GameObject: {fileID: 1455471113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.842579, y: 4.93812, z: 7.053652}
+  m_LocalPosition: {x: -20.842579, y: 7.52, z: 7.053652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

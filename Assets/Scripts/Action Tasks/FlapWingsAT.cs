@@ -8,6 +8,7 @@ namespace NodeCanvas.Tasks.Actions {
 	public class FlapWingsAT : ActionTask {
 		public BBParameter<Transform> leftWingPivot;
         public BBParameter<Transform> rightWingPivot;
+		public BBParameter<bool> isFlying;
 		public float maxRotation, minRotation;
 		public float rotationSpeed;
 		private float r;
@@ -26,12 +27,22 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// Increase r by time multiplied by rotation speed
             r += Time.deltaTime * rotationSpeed;
+			// Set the rotation of the left wing's pivot to r
 			leftWingPivot.value.transform.eulerAngles = new Vector3(0, 0, r);
+            // Set the rotation of the left wing's pivot to negative r
             rightWingPivot.value.transform.eulerAngles = new Vector3(0, 0, -r);
+
+			// If r is greater than the maximum or less than the minimum, inverse the roation speed
 			if (r > maxRotation || r < minRotation)
 			{
 				rotationSpeed = -rotationSpeed;
+			}
+			// If the parrot is not flying, end the action
+			if (isFlying.value == false)
+			{
+				EndAction();
 			}
         }
 

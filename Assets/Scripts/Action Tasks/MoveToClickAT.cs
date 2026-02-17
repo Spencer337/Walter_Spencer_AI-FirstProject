@@ -11,7 +11,7 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<LayerMask> groundLayerMask;
         public BBParameter<NavMeshAgent> navAgent;
 		public BBParameter<bool> isFlying;
-		public Vector3 worldPosition;
+		public BBParameter<Vector3> destinationPoint;
 		public Vector3 mousePosition;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -23,34 +23,40 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+            // Start updating the transform to be synchronized with the nav agent
+            navAgent.value.updatePosition = true;
+
+			// If the lest mouse button was pressed this frame
             bool leftMouseClicked = Mouse.current.leftButton.wasPressedThisFrame;
             if (leftMouseClicked)
             {
+				// Get the mouse's position
                 mousePosition = Mouse.current.position.ReadValue();
 
+				// Cast a ray based on the mouse's position
                 Ray mouseClickRay = Camera.main.ScreenPointToRay(mousePosition);
                 RaycastHit mouseClickHit;
-                var path = new NavMeshPath();
 
+				// If the raycast hit the ground layer
                 if (Physics.Raycast(mouseClickRay, out mouseClickHit, 1000f, groundLayerMask.value))
 				{
-					// Set the parrot's destination to the point the player clicked
-					navAgent.value.SetDestination(mouseClickHit.point);
+					// Set the destination point variable to the point the player clicked
+					destinationPoint.value = mouseClickHit.point;
+                    // Set the parrot's destination to the destination point
+                    navAgent.value.SetDestination(destinationPoint.value);
                 }
-				//else
-				//{
-				//	Debug.Log("no destination");
-				//	EndAction(true);
-				//}
             }
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			// If the path is not loading and there is no more distance on the path, end the action
             if (navAgent.value.pathPending == false && navAgent.value.remainingDistance <= 0)
             {
                 EndAction(true);
             }
+			// If the path is partial instead of full, reset the path and set is flying to true
+			// Then, end the action
 			if (navAgent.value.pathStatus == NavMeshPathStatus.PathPartial)
 			{
 				navAgent.value.ResetPath();

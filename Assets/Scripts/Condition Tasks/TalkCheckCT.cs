@@ -18,6 +18,7 @@ namespace NodeCanvas.Tasks.Conditions {
 
 		//Called whenever the condition gets enabled.
 		protected override void OnEnable() {
+			// If these is nothing in the input field, get a random number between 0 and 100
             if (inputField.value.text != "")
             {
                 randomNumber = Random.Range(0f, 100f);
@@ -32,7 +33,8 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
-
+			// If the random number is above 50, return true
+			// Otherwise, return false
             if (randomNumber > 50)
 			{
                 randomNumber = 0;
