@@ -515,8 +515,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139518980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.94, y: 7.363, z: 7.053652}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.0761173, y: 2.5601206, z: -6.2267323}
   m_LocalScale: {x: 1.5, y: 5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -524,7 +524,7 @@ Transform:
   - {fileID: 1198914050}
   - {fileID: 1749145474}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &139518985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":916.0,"y":331.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_position":{"x":1169.0,"y":474.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_nestedFSM":{"_value":2},"_position":{"x":623.0,"y":474.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"navAgent":{"_name":"navAgent","_targetVariableID":"1eed5acc-5cee-4092-a2fb-3658d4c2b8d6"},"foodTransform":3,"$type":"NodeCanvas.Tasks.Actions.MoveToFoodAT"},{"hungerValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"hungerSlider":{"_name":"hungerBar","_targetVariableID":"508ada61-3266-40d6-bced-1fe960e65f09"},"increaseValue":20.0,"maxTime":0.5,"$type":"NodeCanvas.Tasks.Actions.ParrotEatAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eat","_position":{"x":1172.0,"y":219.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"sleepValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"sleepSlider":{"_name":"sleepBar","_targetVariableID":"3d0c3cdd-ae05-4a18-bfce-26fd62b928b4"},"fillRate":10.0,"$type":"NodeCanvas.Tasks.Actions.ParrotSleepAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleep","_position":{"x":701.0,"y":170.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"needSlider":{"_name":"socialBar","_targetVariableID":"f5e16750-cd7c-403b-9b87-090a44e8fbce"},"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"needSlider":{"_name":"hungerBar","_targetVariableID":"508ada61-3266-40d6-bced-1fe960e65f09"},"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"needSlider":{"_name":"sleepBar","_targetVariableID":"3d0c3cdd-ae05-4a18-bfce-26fd62b928b4"},"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"}]},"_position":{"x":1401.0,"y":365.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"checkValue":80.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.LeftClickCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"checkValue":80.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":916.0,"y":331.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_position":{"x":1169.0,"y":474.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_nestedFSM":{"_value":2},"_position":{"x":623.0,"y":474.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"navAgent":{"_name":"navAgent","_targetVariableID":"1eed5acc-5cee-4092-a2fb-3658d4c2b8d6"},"foodTransform":3,"$type":"NodeCanvas.Tasks.Actions.MoveToFoodAT"},{"hungerValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"hungerSlider":{"_name":"hungerBar","_targetVariableID":"508ada61-3266-40d6-bced-1fe960e65f09"},"increaseValue":20.0,"maxTime":0.5,"$type":"NodeCanvas.Tasks.Actions.ParrotEatAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eat","_position":{"x":1172.0,"y":219.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"sleepValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"sleepSlider":{"_name":"sleepBar","_targetVariableID":"3d0c3cdd-ae05-4a18-bfce-26fd62b928b4"},"fillRate":10.0,"$type":"NodeCanvas.Tasks.Actions.ParrotSleepAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleep","_position":{"x":701.0,"y":170.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"needSlider":{"_name":"socialBar","_targetVariableID":"f5e16750-cd7c-403b-9b87-090a44e8fbce"},"decreaseValue":1.0,"maxTime":0.5,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"needSlider":{"_name":"hungerBar","_targetVariableID":"508ada61-3266-40d6-bced-1fe960e65f09"},"decreaseValue":1.0,"maxTime":1.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"},{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"needSlider":{"_name":"sleepBar","_targetVariableID":"3d0c3cdd-ae05-4a18-bfce-26fd62b928b4"},"decreaseValue":1.0,"maxTime":2.0,"$type":"NodeCanvas.Tasks.Actions.DecreaseNeedAT"}]},"_position":{"x":1401.0,"y":365.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"checkValue":80.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.LeftClickCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"checkValue":30.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"checkValue":20.0,"$type":"NodeCanvas.Tasks.Conditions.NeedBelowValueCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"socialNeed","_targetVariableID":"3b519c62-3510-44ea-a9ba-661c8752d8c3"},"checkValue":80.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"hungerNeed","_targetVariableID":"2d36d512-efdc-41d7-a358-c2bdd1278bc1"},"checkValue":90.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"needValue":{"_name":"sleepNeed","_targetVariableID":"2d5d1d76-ef07-4d96-96f0-1eec185347c2"},"checkValue":100.0,"$type":"NodeCanvas.Tasks.Conditions.NeedAboveValueCT"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 11400000, guid: 0e40818cfa7d6e2408ff1b2e92a1b59b, type: 2}
@@ -2572,7 +2572,7 @@ Transform:
   m_GameObject: {fileID: 710953395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.1, z: 0.5319998}
+  m_LocalPosition: {x: -0.25, y: 0.1, z: -0.53}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2788,7 +2788,7 @@ Transform:
   m_GameObject: {fileID: 796892946}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.17399958, z: 0.5319998}
+  m_LocalPosition: {x: 0, y: -0.17399958, z: -0.53}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3539,7 +3539,7 @@ Transform:
   m_GameObject: {fileID: 962920493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.09, z: 0.5319998}
+  m_LocalPosition: {x: 0, y: -0.09, z: -0.53}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3829,7 +3829,7 @@ Transform:
   m_GameObject: {fileID: 1117028444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.29999998, z: 0.15}
+  m_LocalPosition: {x: 0, y: -0.29999998, z: -0.15}
   m_LocalScale: {x: 0.20000002, y: 0.10000001, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4163,7 +4163,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'gsgsggsg
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4249,16 +4251,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198914047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0033333334, y: 0.001, z: 0.0033333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 139518984}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: 0.62559986}
+  m_AnchoredPosition: {x: 0.5, y: 0.62559986}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1225892515
@@ -4560,7 +4562,7 @@ Transform:
   m_GameObject: {fileID: 1312591288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.1, z: 0.532}
+  m_LocalPosition: {x: 0.25, y: 0.1, z: -0.53}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4689,7 +4691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1422632499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,13 +4737,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422632498}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0033333334, y: 0.001, z: 0.0033333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 139518984}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.62559986}
@@ -5640,7 +5642,7 @@ Transform:
   m_GameObject: {fileID: 1665050182}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0.15}
+  m_LocalPosition: {x: 0, y: -0.3, z: -0.15}
   m_LocalScale: {x: 0.2, y: 0.1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []

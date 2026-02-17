@@ -13,6 +13,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<bool> isFlying;
 		public BBParameter<Vector3> destinationPoint;
         public BBParameter<bool> reachedMovementDestination;
+        public float maxDistance;
 
         public Vector3 mousePosition;
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -43,7 +44,7 @@ namespace NodeCanvas.Tasks.Actions {
                 RaycastHit mouseClickHit;
 
 				// If the raycast hit the ground layer
-                if (Physics.Raycast(mouseClickRay, out mouseClickHit, 1000f, groundLayerMask.value))
+                if (Physics.Raycast(mouseClickRay, out mouseClickHit, maxDistance, groundLayerMask.value))
 				{
 					// Set the destination point variable to the point the player clicked
 					destinationPoint.value = mouseClickHit.point;

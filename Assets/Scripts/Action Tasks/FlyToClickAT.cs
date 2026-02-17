@@ -30,9 +30,12 @@ namespace NodeCanvas.Tasks.Actions {
 			startPos = agent.transform.position;
 			// Set the end position to the destination point 
 			endPos = destinationPoint.value;
-			endPos.y += 2.5f;
+			// Raise the end point by half the parrot's height
+			endPos.y += agent.transform.localScale.y / 2;
 			// Stop updating the transform to be synchronized with the nav agent
 			navAgent.value.updatePosition = false;
+			// Rotate the parrot to look at the destination point
+			agent.transform.LookAt(endPos);
 		}
 
 		//Called once per frame while the action is active.
