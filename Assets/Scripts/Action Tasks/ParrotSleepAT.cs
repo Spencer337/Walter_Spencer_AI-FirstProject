@@ -9,7 +9,10 @@ namespace NodeCanvas.Tasks.Actions {
 	public class ParrotSleepAT : ActionTask {
 		public BBParameter<float> sleepValue;
 		public BBParameter<Slider> sleepSlider;
-		public float fillRate;
+		public BBParameter<GameObject> sleepSprite;
+        public BBParameter<AudioClip> sleepSound;
+        public float fillRate;
+		public float maxValue;
 
 
 		//Use for initialization. This is called only once in the lifetime of the task.
@@ -22,7 +25,11 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-		}
+            // Set the sleep sprite to be visible
+            sleepSprite.value.SetActive(true);
+            // Play the sleep audio clip
+            AudioSource.PlayClipAtPoint(sleepSound.value, agent.transform.position);
+        }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
@@ -30,6 +37,12 @@ namespace NodeCanvas.Tasks.Actions {
 			sleepValue.value += fillRate * Time.deltaTime;
 			// Set the sleep slider to the sleep need value
 			sleepSlider.value.value = sleepValue.value;
+
+			// If the sleep need value is above maxValue, set the sleep sprite to invisible
+			if (sleepValue.value > maxValue)
+			{
+				sleepSprite.value.SetActive(false);
+			}
 			
 		}
 

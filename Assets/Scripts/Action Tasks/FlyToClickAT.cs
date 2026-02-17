@@ -47,6 +47,7 @@ namespace NodeCanvas.Tasks.Actions {
 			// If t is greater than 1, reset t and set isFlying to false
 			if (t >= 1)
 			{
+				// Teleport the parrot back onto the nav mesh at the current position
 				navAgent.value.Warp(agent.transform.position);
 				t = 0;
 				isFlying.value = false;
