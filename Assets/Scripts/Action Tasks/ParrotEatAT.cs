@@ -12,8 +12,8 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<float> hungerValue;
         public BBParameter<Slider> hungerSlider;
         public float increaseValue;
-        public float maxTime;
-        private float t;
+        public float maxTime, maxValue, maxRotation, minRotation, rotationSpeed;
+        private float t, r;
 
 
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -27,12 +27,24 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
             t = 0;
+            r = 0;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
             // Increase t by time
             t += Time.deltaTime;
+            // Increase r by time multiplied by rotation speed
+            r += Time.deltaTime * rotationSpeed;
+            // Set the rotation of the parrot's x axis to r
+            agent.transform.eulerAngles = new Vector3(r, 270, 0);
+
+            // If r is greater than the maximum or less than the minimum, inverse the roation speed
+            if (r > maxRotation || r < minRotation)
+            {
+                rotationSpeed = -rotationSpeed;
+            }
+
             // If t is greater than max time
             if (t >= maxTime)
             {
@@ -41,6 +53,12 @@ namespace NodeCanvas.Tasks.Actions {
                 hungerSlider.value.value = hungerValue.value;
                 // Reset t to 0
                 t = 0;
+            }
+
+            // If the hunger need value is above maxValue, set parrot's rotation back to normal
+            if (hungerValue.value > maxValue)
+            {
+                agent.transform.eulerAngles = new Vector3(0, 270, 0);
             }
         }
 

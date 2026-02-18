@@ -11,6 +11,8 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<Slider> sleepSlider;
 		public BBParameter<GameObject> sleepSprite;
         public BBParameter<AudioClip> sleepSound;
+		public BBParameter<Transform> leftEye; 
+		public BBParameter<Transform> rightEye; 
         public float fillRate;
 		public float maxValue;
 
@@ -29,6 +31,9 @@ namespace NodeCanvas.Tasks.Actions {
             sleepSprite.value.SetActive(true);
             // Play the sleep audio clip
             AudioSource.PlayClipAtPoint(sleepSound.value, agent.transform.position);
+			// Decrease the size of the parrot's eyes
+			leftEye.value.localScale = new Vector3(0.1f, 0.01f, 0.1f);
+            rightEye.value.localScale = new Vector3(0.1f, 0.01f, 0.1f);
         }
 
 		//Called once per frame while the action is active.
@@ -42,7 +47,11 @@ namespace NodeCanvas.Tasks.Actions {
 			if (sleepValue.value > maxValue)
 			{
 				sleepSprite.value.SetActive(false);
-			}
+
+                // Set the parrot's eyes back to their original size
+                leftEye.value.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                rightEye.value.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            }
 			
 		}
 
